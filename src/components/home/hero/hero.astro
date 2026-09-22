@@ -2,7 +2,7 @@
 import AvailabilityBadge from '@/components/shared/availability-badge'
 import GreetingWord from '@/components/home/hero/greeting-word'
 import HeroCta from '@/components/home/hero/hero-cta'
-import IdCard from '@/components/ui/id-card'
+import IdCardLazy from '@/components/ui/id-card-lazy'
 ---
 
 <section class='lg:relative'>
@@ -26,9 +26,11 @@ import IdCard from '@/components/ui/id-card'
     </div>
   </div>
 
-  <!-- client:only — WebGL/Canvas can't SSR -->
-  <IdCard
-    client:only='react'
+  <!-- client:visible — IdCardLazy is an SSR-safe shell; it only fetches and mounts the real
+       WebGL/rapier component (~1MB) once scrolled into view, and never on mobile where
+       max-lg:hidden keeps it offscreen. -->
+  <IdCardLazy
+    client:visible
     frontImage='/images/3d-card/profile.webp'
     className='mx-auto mt-8 aspect-4/5 w-full max-w-80 max-lg:hidden lg:absolute lg:-top-31 lg:right-0 lg:left-0 lg:z-10 lg:mt-0 lg:aspect-auto lg:h-192 lg:max-w-none'
   />

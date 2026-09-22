@@ -14,8 +14,10 @@ export default defineConfig({
       filter: page => !page.includes('/admin/') && !page.includes('/private/'),
       customPages: [],
       serialize(item) {
+        const path = new URL(item.url).pathname
+
         // Homepage - highest priority
-        if (item.url.endsWith('/') && item.url.split('/').filter(Boolean).length === 0) {
+        if (path === '/') {
           // @ts-expect-error - Valid sitemap changefreq value
           item.changefreq = 'daily'
           item.priority = 1.0
