@@ -34,6 +34,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Generates .astro/types.d.ts (content collection + env types) that tsconfig.json
+      # references. A fresh checkout has no .astro/ cache, so tsc fails without this.
+      - name: Astro sync
+        run: pnpm astro sync
+
       - name: Type check
         run: pnpm check-types
 
