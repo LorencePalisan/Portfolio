@@ -1,0 +1,148 @@
+---
+import { readFileSync, readdirSync } from 'node:fs'
+import { join } from 'node:path'
+
+import { imageSize } from 'image-size'
+
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import Eyebrow from '@/components/shared/eyebrow/eyebrow.astro'
+import ProfileCarousel from '@/components/home/about/profile-carousel'
+import { DatabaseIcon, HardDriveIcon, LayoutDashboardIcon, ZapIcon } from 'lucide-react'
+
+// Auto-discovers every carousel-<number>.<ext> file next to carousel-01.webp in
+// public/images/about-me, so dropping in carousel-05.webp etc. just works with no code change.
+// Resolved from process.cwd() (the project root Astro is run from) rather than import.meta.url,
+// since Astro relocates this component's compiled chunk under dist/ at build time.
+const CAROUSEL_DIR = join(process.cwd(), 'public/images/about-me')
+const CAROUSEL_FILENAME_PATTERN = /^carousel-(\d+)\.(webp|avif|png|jpe?g)$/i
+
+const carouselFiles = readdirSync(CAROUSEL_DIR)
+  .map(name => {
+    const match = name.match(CAROUSEL_FILENAME_PATTERN)
+
+    return match ? { name, index: Number(match[1]) } : null
+  })
+  .filter((file): file is { name: string; index: number } => file !== null)
+  .sort((a, b) => a.index - b.index)
+
+const carouselImages = carouselFiles.map(file => `/images/about-me/${file.name}`)
+
+// Carousel scales to carousel-01's own aspect ratio instead of a hardcoded height.
+const FALLBACK_ASPECT_RATIO = 380 / 520
+const firstCarouselFile = carouselFiles[0]
+let carouselAspectRatio = FALLBACK_ASPECT_RATIO
+
+if (firstCarouselFile) {
+  const { width, height } = imageSize(readFileSync(`${CAROUSEL_DIR}/${firstCarouselFile.name}`))
+
+  carouselAspectRatio = width / height
+}
+
+const services = [
+  {
+    icon: ZapIcon,
+    title: 'Fast, Reliable Websites & Apps',
+    description:
+      'I build the behind-the-scenes systems that power your website or app, so it responds instantly and keeps working even when a lot of people show up at once.'
+  },
+  {
+    icon: DatabaseIcon,
+    title: 'Organized Customer & Business Data',
+    description:
+      'Customer accounts, orders, bookings, and records stored in a properly organized system, so nothing gets lost, duplicated, or corrupted as your business grows.'
+  },
+  {
+    icon: HardDriveIcon,
+    title: 'Affordable File & Photo Storage',
+    description:
+      'Product photos, documents, and exports stored securely and affordably, without the unpredictable fees most storage providers charge as your library grows.'
+  },
+  {
+    icon: LayoutDashboardIcon,
+    title: 'Websites That Turn Visitors Into Customers',
+    description:
+      'Dashboards, booking flows, and customer portals designed around how people actually browse and buy, so fewer visitors leave before taking action.'
+  }
+]
+
+const competencies = [
+  { label: 'Frontend', items: ['React', 'JavaScript / TypeScript', 'Modern CSS / Tailwind CSS', 'Vite'] },
+  { label: 'Edge & Serverless Compute', items: ['Cloudflare Workers', 'Wrangler CLI'] },
+  { label: 'Database & Storage', items: ['Cloudflare D1 (Serverless SQLite)', 'Cloudflare R2 (Object Storage)'] },
+  { label: 'Architecture', items: ['REST APIs', 'Serverless Workflows', 'Edge Caching', 'Global CDN Routing'] }
+]
+---
+
+<section id='about' class='border-b py-8 sm:py-16 lg:py-24'>
+  <div class='mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-10.5'>
+    <div class='space-y-2'>
+      <Eyebrow text='About me' />
+      <h2 class='text-2xl font-semibold md:text-3xl lg:text-4xl'>
+        Websites and tools built to make your business run smoother
+      </h2>
+    </div>
+
+    <div class='grid grid-cols-1 gap-6 md:grid-cols-[380px_1fr]'>
+      <ProfileCarousel client:visible images={carouselImages} aspectRatio={carouselAspectRatio} />
+
+      <div class='grid gap-4 sm:grid-cols-2'>
+        <Card className='ring-border rounded-[24px] bg-(--background-darker) shadow-none sm:col-span-2'>
+          <CardContent className='space-y-4 py-2 max-md:px-4 md:px-6'>
+            <div class='space-y-1'>
+              <h3 class='text-xl font-semibold md:text-2xl'>Lorence Palisan</h3>
+              <p class='text-muted-foreground text-sm md:text-base'>Freelance Web Developer for Growing Businesses</p>
+            </div>
+            <div class='bg-muted h-px w-10'></div>
+            <p class='text-muted-foreground text-sm leading-relaxed md:text-base'>
+              I help growing businesses solve the everyday problems that slow them down - slow websites, disorganized
+              customer data, and rising storage costs. I build fast, reliable websites and tools that just work, so you
+              can spend less time worrying about your website and more time running your business.
+            </p>
+          </CardContent>
+        </Card>
+
+        <h3 class='text-foreground px-1 pt-2 text-base font-medium sm:col-span-2 md:text-lg'>
+          How I solve business problems
+        </h3>
+
+        {
+          services.map(({ icon: Icon, title, description }) => (
+            <Card className='ring-border rounded-[24px] bg-(--background-darker) shadow-none'>
+              <CardContent className='space-y-3 py-2 max-md:px-4 md:px-6'>
+                <div class='bg-background ring-border flex size-9 items-center justify-center rounded-full ring-1'>
+                  <Icon className='text-muted-foreground size-4' />
+                </div>
+                <h4 class='text-base leading-snug font-medium'>{title}</h4>
+                <p class='text-muted-foreground text-sm leading-relaxed'>{description}</p>
+              </CardContent>
+            </Card>
+          ))
+        }
+
+        <Card className='ring-border rounded-[24px] bg-(--background-darker) shadow-none sm:col-span-2'>
+          <CardContent className='space-y-5 py-2 max-md:px-4 md:px-6'>
+            <h3 class='text-base font-medium md:text-lg'>Core tech stack</h3>
+            {
+              competencies.map(group => (
+                <div class='space-y-2'>
+                  <p class='text-muted-foreground text-xs tracking-wide uppercase'>{group.label}</p>
+                  <div class='flex flex-wrap gap-2'>
+                    {group.items.map(item => (
+                      <Badge
+                        variant='secondary'
+                        className='text-muted dark:bg-background dark:text-primary/70 h-6.5 rounded-sm bg-white font-light'
+                      >
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>

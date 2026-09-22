@@ -1,0 +1,54 @@
+---
+import { buttonVariants } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+
+import { SOCIAL_LINKS } from '@/consts'
+
+const socials = [
+  { label: 'GitHub', src: '/images/footer/github-logo.webp', href: SOCIAL_LINKS.github },
+  { label: 'Email', src: '/images/footer/gmail.webp', href: SOCIAL_LINKS.email },
+  { label: 'LinkedIn', src: '/images/footer/linkedin.webp', href: SOCIAL_LINKS.linkedin },
+  { label: 'X', src: '/images/footer/twitter.webp', href: SOCIAL_LINKS.twitter }
+].filter(social => social.href)
+
+const year = new Date().getFullYear()
+---
+
+<footer class='lg:px-10.5'>
+  <div class='mx-auto max-w-4xl space-y-12 pb-12 lg:border-x xl:max-w-245'>
+    <div class='flex items-center gap-3'>
+      <Separator className='flex-1' />
+      <div class='flex items-center gap-3' hidden={socials.length === 0}>
+        {
+          socials.map(social => (
+            <a
+              href={social.href}
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label={social.label}
+              class={buttonVariants({
+                variant: 'outline',
+                size: 'icon',
+                className: 'hover:bg-muted/5 min-w-10 rounded-md'
+              })}
+            >
+              <img src={social.src} alt={social.label} width={16} height={16} />
+            </a>
+          ))
+        }
+      </div>
+      <Separator className='flex-1' />
+    </div>
+
+    <div class='mb-8 flex items-center justify-center gap-5 text-center max-lg:hidden xl:ml-8'>
+      <p class='text-muted-foreground'>Thank you, for visiting here</p>
+      <img src='/images/footer/tree-seal.webp' alt='Seal' class='size-25' />
+      <p class='text-muted-foreground'>Let's create something beautiful</p>
+    </div>
+
+    <div class='-ml-5 space-y-1 text-center'>
+      <p class='text-foreground [font-family:var(--font-handwritten)] text-5xl'>Lorence Palisan</p>
+      <p class='text-xs'>&copy; {year} Lorence Palisan</p>
+    </div>
+  </div>
+</footer>

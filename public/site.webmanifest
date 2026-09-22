@@ -1,0 +1,58 @@
+{
+  "name": "Lorence Palisan - Freelance Web Developer for Growing Businesses",
+  "short_name": "Lorence Palisan",
+  "description": "Lorence Palisan is a freelance web developer who builds fast, reliable websites and business tools for growing businesses.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "categories": [
+    "business",
+    "development"
+  ],
+  "icons": [
+    {
+      "src": "/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Home",
+      "short_name": "Home",
+      "description": "Go to homepage",
+      "url": "/"
+    }
+  ]
+}

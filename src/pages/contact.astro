@@ -1,0 +1,31 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ContactHero from '@/components/contact/contact-hero/contact-hero'
+import Services from '@/components/shared/services/services'
+
+const pageTitle = 'Contact'
+const pageDescription =
+  'Get in touch with Lorence Palisan to talk about your website, business tools, or online storage needs.'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Lorence Palisan',
+      description: 'Freelance web developer for growing businesses.',
+      inLanguage: 'en-US'
+    },
+    {
+      '@type': 'ContactPage',
+      name: pageTitle,
+      description: pageDescription
+    }
+  ]
+}
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={schema}>
+  <ContactHero client:load />
+  <Services client:visible />
+</Layout>

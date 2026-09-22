@@ -1,0 +1,49 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/home/hero/hero.astro'
+import About from '@/components/home/about/about.astro'
+import Experience from '@/components/home/experience/experience.astro'
+import Services from '@/components/shared/services/services'
+import HireMe from '@/components/home/hire-me/hire-me.astro'
+import SelectService from '@/components/home/select-service/select-service.astro'
+
+import { SITE_METADATA } from '@/consts'
+
+const pageDescription = SITE_METADATA.description
+const pageKeywords = SITE_METADATA.keywords.join(', ')
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Lorence Palisan',
+      description: 'Freelance web developer for growing businesses.',
+      inLanguage: 'en-US'
+    },
+    {
+      '@type': 'Person',
+      name: 'Lorence Palisan',
+      jobTitle: 'Freelance Web Developer',
+      knowsAbout: [
+        'React',
+        'TypeScript',
+        'Cloudflare Workers',
+        'Cloudflare D1',
+        'Cloudflare R2',
+        'Edge caching',
+        'REST APIs'
+      ]
+    }
+  ]
+}
+---
+
+<Layout description={pageDescription} keywords={pageKeywords} schema={schema}>
+  <Hero />
+  <About />
+  <Experience />
+  <Services client:visible />
+  <HireMe />
+  <SelectService />
+</Layout>
