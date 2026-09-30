@@ -1,9 +1,9 @@
 // Site Configuration
 // Centralized configuration for site metadata, SEO, and branding
 
-export const SITE_TITLE = 'Lorence Palisan - Freelance Web Developer for Growing Businesses'
+export const SITE_TITLE = 'Lorence Palisan - Freelance Software Developer for Web & Mobile Apps'
 export const SITE_DESCRIPTION =
-  'Lorence Palisan is a freelance web developer who builds fast, reliable websites and business tools - so your site stays online, your data stays organized, and your customers get a great experience.'
+  'Lorence Palisan is a freelance software developer who helps growing businesses build fast, scalable web and mobile apps that drive conversions - with clear scope, weekly updates, and post-launch support.'
 
 export const SITE_URL = import.meta.env.SITE_URL || 'http://localhost:4321/'
 
@@ -15,6 +15,8 @@ export const SITE_METADATA = {
   description: SITE_DESCRIPTION,
   keywords: [
     'Lorence Palisan',
+    'freelance software developer',
+    'web and mobile app developer',
     'freelance full-stack developer',
     'Cloudflare Workers developer',
     'Cloudflare D1',

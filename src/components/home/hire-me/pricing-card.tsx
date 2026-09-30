@@ -7,12 +7,12 @@ import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
 
 const FEATURES = [
-  'Tailored to your goals',
+  'Clear scope & fixed quote',
+  'Weekly progress updates',
   'Direct communication with me',
-  'Design + code delivered',
-  'Fast for customers anywhere',
-  'Built to grow with your business',
-  'Clear scope & timeline'
+  'Clean, documented code',
+  'Post-launch support',
+  'Built to grow with your business'
 ]
 
 const PricingCard = ({ className }: { className?: string }) => {
@@ -21,19 +21,20 @@ const PricingCard = ({ className }: { className?: string }) => {
       <CardContent className='space-y-6 px-6'>
         <div className='space-y-2.5'>
           <p className='text-foreground text-2xl font-medium lg:text-[30px]'>Project-Based Engagement</p>
-          <p className='text-muted-foreground mb-0 text-base'>One full-stack developer dedicated to your business.</p>
+          <p className='text-muted-foreground mb-0 text-base'>One developer, from discovery call to launch and beyond.</p>
           <p className='text-muted-foreground text-base'>
-            I plan it, build it, and launch it - from the first conversation to a fast, reliable website or app.
+            Book a free discovery call, tell me what you need, and get a written scope, timeline, and estimate before
+            any work starts.
           </p>
         </div>
 
         <Separator />
 
         <Badge variant='secondary' className='text-foreground h-6.5 rounded-full bg-(--background-darker) font-normal'>
-          Custom quote for every project
+          Free discovery call
         </Badge>
 
-        <p className='text-foreground mb-5.5 text-3xl font-semibold sm:text-4xl'>Let&apos;s scope your project</p>
+        <p className='text-foreground mb-5.5 text-3xl font-semibold sm:text-4xl'>Request a Project Estimate</p>
 
         <ul className='mb-5.5 grid grid-cols-2 gap-x-4 gap-y-2'>
           {FEATURES.map(feature => (
@@ -52,7 +53,7 @@ const PricingCard = ({ className }: { className?: string }) => {
               <span className='bg-accent relative flex size-2.5 items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/button:size-6.5'>
                 <ArrowRightIcon className='text-accent-foreground absolute size-4.5 -translate-x-3 opacity-0 transition-all duration-300 group-hover/button:translate-x-0 group-hover/button:opacity-100' />
               </span>
-              Let&apos;s connect
+              Book a Discovery Call
             </a>
           }
           nativeButton={false}

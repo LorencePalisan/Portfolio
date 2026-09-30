@@ -9,44 +9,44 @@ import { Accordion, AccordionItem, AccordionContent, AccordionTrigger } from '@/
 
 const SERVICES = [
   {
-    title: 'Fast, Reliable Websites & Apps',
+    title: 'Web & Mobile App Development',
     image: '/images/services/thumb-01.webp',
-    duration: 'Best for launches, sales, and traffic spikes',
-    tools: ['Loads fast for every visitor', 'Stays online during busy periods', 'No downtime during updates'],
+    duration: 'Best for new products, MVPs, and internal tools',
+    tools: ['Responsive web apps', 'iOS & Android apps', 'Landing pages & business tools'],
     description:
-      'I build the behind-the-scenes systems that power your website or app, so it responds instantly and keeps working even when a lot of people show up at once.'
+      'From a high-converting landing page to a full web or mobile app, I build what your business needs to win customers and save your team time - fast, reliable, and easy to grow.'
   },
   {
-    title: 'Organized Customer & Business Data',
+    title: 'Performance & Speed Optimization',
     image: '/images/services/thumb-02.webp',
-    duration: 'Best for growing customer and order records',
-    tools: ['Accurate records, always', 'Automatic backups', 'No server to maintain'],
+    duration: 'Best for slow sites that are losing visitors',
+    tools: ['Core Web Vitals remediation', 'Render tuning', 'Asset optimization'],
     description:
-      'Customer accounts, orders, bookings, and records stored in a properly organized system, so nothing gets lost, duplicated, or corrupted as your business grows.'
+      'Faster apps and pages mean more sales, more sign-ups, and better search rankings. I find what is slowing your app or site down, fix it, and show you the before-and-after results.'
   },
   {
-    title: 'Affordable File & Photo Storage',
+    title: 'API Integration & Backend Refactoring',
     image: '/images/services/thumb-03.webp',
-    duration: 'Best for businesses with lots of photos or files',
-    tools: ['No surprise storage bills', 'Handles large files easily', 'Secure uploads for your team'],
+    duration: 'Best for disconnected tools and recurring bugs',
+    tools: ['Third-party integrations', 'Database optimization', 'Bug fixes'],
     description:
-      'Product photos, documents, and exports stored securely and affordably, without the unpredictable fees most storage providers charge as your library grows.'
+      'I connect the tools you already rely on, speed up slow databases, and clean up fragile code - so your systems work together and stop breaking.'
   },
   {
-    title: 'Websites That Turn Visitors Into Customers',
+    title: 'CMS & E-Commerce Engineering',
     image: '/images/services/thumb-04.webp',
-    duration: 'Best for improving conversions and sign-ups',
-    tools: ['Simple, intuitive design', 'Fast on any device', 'Built to convert'],
+    duration: 'Best for online stores and content-heavy sites',
+    tools: ['Custom theme functionality', 'Plugin extensions', 'Headless setups'],
     description:
-      'Dashboards, booking flows, and customer portals designed around how people actually browse and buy, so fewer visitors leave before taking action.'
+      'I add the features your store or CMS is missing, or move it to a fast headless setup, so your team can manage content easily and customers can check out without friction.'
   },
   {
-    title: 'Speed & Reliability, Worldwide',
+    title: 'Post-Launch Support & Maintenance',
     image: '/images/services/thumb-05.webp',
-    duration: 'Best for reaching customers anywhere in the world',
-    tools: ['Fast for customers anywhere', 'Lower hosting costs', 'Built to scale with you'],
+    duration: 'Best for keeping your app healthy after launch',
+    tools: ['Updates & fixes', 'Monitoring', 'Ongoing improvements'],
     description:
-      'I set up your site so it loads quickly for customers no matter where they are, while keeping your hosting costs predictable as you grow.'
+      'Launch is not the finish line. I stay available to fix issues, keep things up to date, and keep improving your app as your business grows.'
   }
 ]
 
@@ -105,7 +105,7 @@ const Services = () => {
       <div className='mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-10.5'>
         <div className='space-y-2'>
           <Eyebrow>Services</Eyebrow>
-          <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>How I can help your business</h2>
+          <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>What I can build for you</h2>
         </div>
 
         <div

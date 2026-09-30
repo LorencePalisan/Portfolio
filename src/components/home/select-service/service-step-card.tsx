@@ -19,32 +19,32 @@ const STEP_TITLES: Record<number, string> = {
 
 const SERVICES = [
   {
-    id: 'website-or-app',
-    title: 'Website or App That Stays Fast',
+    id: 'app-development',
+    title: 'Web & Mobile App Development',
     price: 'Custom quote',
     duration: '30 min call',
-    description: "Built to keep working even when it's busy"
+    description: 'Web apps, iOS & Android apps, and business tools'
   },
   {
-    id: 'customer-data',
-    title: 'Customer & Order Records',
+    id: 'performance',
+    title: 'Performance & Speed Optimization',
     price: 'Custom quote',
     duration: '30 min call',
-    description: 'Organized data for customers, orders, and bookings'
+    description: 'Core Web Vitals, render tuning, and asset optimization'
   },
   {
-    id: 'file-storage',
-    title: 'File & Photo Storage',
+    id: 'api-backend',
+    title: 'API Integration & Backend Refactoring',
     price: 'Custom quote',
     duration: '30 min call',
-    description: 'Affordable storage with no surprise bills'
+    description: 'Third-party integrations, database fixes, and bug fixes'
   },
   {
-    id: 'website-design',
-    title: 'Website or Dashboard Design',
+    id: 'cms-ecommerce',
+    title: 'CMS & E-Commerce Engineering',
     price: 'Custom quote',
     duration: '30 min call',
-    description: 'Fast, easy-to-use interfaces built to convert'
+    description: 'Custom themes, plugin extensions, and headless setups'
   }
 ]
 
@@ -218,7 +218,7 @@ const ServiceStepCard = () => {
               >
                 {isSubmittingDetails ? 'Sending...' : 'Request Call'}
               </Button>
-              <p className='text-muted-foreground text-center text-xs'>Your information is secure and private.</p>
+              <p className='text-muted-foreground text-center text-xs'>I respond to every request within 24 business hours.</p>
             </>
           )}
         </div>

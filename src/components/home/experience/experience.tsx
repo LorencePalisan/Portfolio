@@ -7,42 +7,42 @@ const PROBLEMS_AND_SOLUTIONS = [
   {
     index: '01',
     icon: ZapIcon,
-    category: 'Slow Websites & Downtime',
-    problem: 'Your website slows down or crashes right when business is booming',
-    solutionTags: ['Loads in under a second', 'Handles busy days automatically', 'Fast anywhere in the world'],
-    outcome: 'Your site stays fast and online, even on your busiest days',
+    category: 'Web & Mobile App Development',
+    problem: 'The business had outgrown spreadsheets and off-the-shelf tools that no longer fit how the team works',
+    solutionTags: ['Custom web & mobile app', 'Built around your workflow', 'Launch-ready MVP'],
+    outcome: 'A focused MVP shipped in weeks, not months, that the team actually uses',
     description:
-      'I build your website so a flood of visitors - from a sale, a feature in the press, or a viral post - never slows you down or knocks you offline.'
+      'I scope the smallest version that solves the real problem, build it as a web or mobile app, and launch it quickly - so you get value early and grow it from real feedback.'
   },
   {
     index: '02',
-    icon: DatabaseIcon,
-    category: 'Customer & Business Data',
-    problem: "Keeping track of customers, orders, and records is a mess, and IT upkeep isn't your job",
-    solutionTags: ['Nothing to install or maintain', 'Automatic backups', 'Built to never lose a record'],
-    outcome: 'All your business data stored safely, with nothing for you to maintain',
+    icon: LayoutDashboardIcon,
+    category: 'Performance & Speed Optimization',
+    problem: 'A slow app or website was quietly costing sales, sign-ups, and search rankings',
+    solutionTags: ['Core Web Vitals fixes', 'Render tuning', 'Asset optimization'],
+    outcome: 'Faster pages, better Core Web Vitals scores, and fewer visitors leaving before they buy',
     description:
-      'Customer accounts, orders, bookings, and records live in a properly organized, always-on system - no servers to patch, no maintenance bills, no surprises.'
+      "I measure where your pages lose time, fix what's slowing them down, and verify the results - so every visitor gets a fast experience on any device."
   },
   {
     index: '03',
-    icon: HardDriveIcon,
-    category: 'Files, Photos & Storage',
-    problem: 'Storing your photos, documents, and files gets expensive as your business grows',
-    solutionTags: ['No surprise storage bills', 'Handles large files easily', 'Secure uploads for your team'],
-    outcome: 'Store everything you need without watching your storage bill climb',
+    icon: DatabaseIcon,
+    category: 'API Integration & Backend Refactoring',
+    problem: 'Disconnected tools, fragile integrations, and recurring bugs were eating up hours every week',
+    solutionTags: ['Third-party integrations', 'Database optimization', 'Bug fixes'],
+    outcome: 'Systems that talk to each other reliably, with less manual work and fewer errors',
     description:
-      'I set up file and media storage that scales with your business - product photos, documents, exports - without the runaway costs most providers charge as you grow.'
+      'I connect your payment, CRM, email, and booking tools, clean up slow queries and brittle code, and document everything so your data flows without constant firefighting.'
   },
   {
     index: '04',
-    icon: LayoutDashboardIcon,
-    category: 'Website Experience & Sales',
-    problem: 'A slow, confusing website is quietly turning potential customers away',
-    solutionTags: ['Simple, intuitive design', 'Fast on any device', 'Built to turn visitors into customers'],
-    outcome: "A website that's easy to use and built to convert visitors into paying customers",
+    icon: HardDriveIcon,
+    category: 'CMS & E-Commerce Engineering',
+    problem: "The store or CMS couldn't do what the business needed without awkward workarounds",
+    solutionTags: ['Custom theme functionality', 'Plugin extensions', 'Headless setups'],
+    outcome: 'A store or content site your team can manage easily, built to convert',
     description:
-      'From your homepage to your checkout or booking flow, I design around how real customers actually browse and buy, so fewer people leave before taking action.'
+      'I extend your CMS or e-commerce platform with the features you need - or move it to a fast headless setup - so updating content and selling online stays simple.'
   }
 ]
 

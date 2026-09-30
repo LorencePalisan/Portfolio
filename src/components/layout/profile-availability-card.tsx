@@ -10,7 +10,7 @@ const ProfileAvailabilityCard = () => {
 
       <div className='text-left'>
         <p className='text-sm font-medium'>Lorence Palisan</p>
-        <p className='text-muted-foreground text-xs'>Full-Stack Developer</p>
+        <p className='text-muted-foreground text-xs'>Software Developer</p>
       </div>
 
       <span className='ml-2 flex items-center gap-1.5 text-sm font-medium whitespace-nowrap text-green-600 dark:text-green-400'>

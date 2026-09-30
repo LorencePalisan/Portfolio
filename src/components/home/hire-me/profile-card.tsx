@@ -9,9 +9,9 @@ import AvailabilityBadge from '@/components/shared/availability-badge'
 import { cn } from '@/lib/utils'
 
 const STATS = [
-  { label: 'Websites', value: 'Fast' },
-  { label: 'Data', value: 'Organized' },
-  { label: 'Storage', value: 'Affordable' }
+  { label: 'Reply time', value: '24h' },
+  { label: 'Updates', value: 'Weekly' },
+  { label: 'Quote', value: 'Fixed' }
 ]
 
 const ProfileCard = ({ className }: { className?: string }) => {
@@ -68,7 +68,7 @@ const ProfileCard = ({ className }: { className?: string }) => {
                     <h3 className='text-xl font-semibold lg:text-2xl'>Lorence Palisan</h3>
                     <p className='text-muted-foreground flex items-center justify-center gap-1 text-sm font-medium'>
                       <BriefcaseIcon className='text-muted-foreground size-4' />
-                      Full-Stack Developer
+                      Software Developer
                     </p>
                   </div>
                 </div>
@@ -92,12 +92,12 @@ const ProfileCard = ({ className }: { className?: string }) => {
             <CardContent className='relative flex h-full flex-col justify-between gap-6'>
               <div>
                 <p className='text-xs text-white/60'>Lorence Palisan</p>
-                <h3 className='text-base font-medium'>Freelance Web Developer</h3>
+                <h3 className='text-base font-medium'>Freelance Software Developer</h3>
               </div>
 
               <div className='flex items-end justify-between gap-3'>
                 <p className='text-base'>
-                  I build fast, reliable websites and apps that work well for your customers, wherever they are.
+                  I build fast, scalable web and mobile apps that turn users into customers.
                 </p>
                 <Avatar className='h-24.5 w-20.5 shrink-0 rounded-[12px]'>
                   <AvatarImage src='/images/hire-me/profile.webp' alt='Lorence Palisan' className='rounded-[12px]' />
@@ -115,8 +115,8 @@ const ProfileCard = ({ className }: { className?: string }) => {
         <p className='mb-2 text-xl font-medium sm:text-2xl lg:text-[30px]'>Hire me today</p>
 
         <p className='text-muted-foreground text-base'>
-          Tell me what&apos;s slowing your business down, and I&apos;ll help you turn it into a fast, reliable website
-          or app that just works.
+          Tell me about your project and I&apos;ll reply within 24 business hours with next steps and a clear plan to
+          get it built.
         </p>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { z } from 'zod'
 
 export const SERVICE_OPTIONS = [
-  'Website or App That Stays Fast',
-  'Customer & Order Records',
-  'File & Photo Storage',
-  'Website or Dashboard Design',
-  'Speed & Reliability, Worldwide',
+  'Web & Mobile App Development',
+  'Performance & Speed Optimization',
+  'API Integration & Backend Refactoring',
+  'CMS & E-Commerce Engineering',
+  'Post-Launch Support & Maintenance',
   'Something else'
 ] as const
 

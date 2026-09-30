@@ -115,10 +115,10 @@ const DetailsStep = ({ service, date, time, onSuccess, onSubmittingChange }: Det
         </div>
 
         <div className='space-y-2'>
-          <Label htmlFor='details-notes'>Notes (optional)</Label>
+          <Label htmlFor='details-notes'>Project brief (optional)</Label>
           <Textarea
             id='details-notes'
-            placeholder='Tell me a bit about your project...'
+            placeholder='What do you need built, and what is your estimated budget?'
             className='min-h-20 resize-none rounded-[16px] px-4.5 focus-visible:ring-0'
             value={notes}
             onChange={event => setNotes(event.target.value)}
