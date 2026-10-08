@@ -7,8 +7,7 @@ import { toast } from 'sonner'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbglozdn'
+import { submitLead } from '@/lib/submit-lead'
 
 type DetailsStepProps = {
   service: { title: string; price: string; duration: string } | undefined
@@ -19,6 +18,7 @@ type DetailsStepProps = {
 }
 
 const DetailsStep = ({ service, date, time, onSuccess, onSubmittingChange }: DetailsStepProps) => {
+  const [honeypot, setHoneypot] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [notes, setNotes] = useState('')
@@ -32,29 +32,19 @@ const DetailsStep = ({ service, date, time, onSuccess, onSubmittingChange }: Det
     onSubmittingChange(true)
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: 'New call request from portfolio site',
-          name,
-          email,
-          notes,
-          service: serviceValue,
-          requestedTime: dateTimeValue,
-          price: priceValue
-        })
+      await submitLead({
+        form: 'call-request', name, email, message: notes,
+        service: serviceValue, requestedDate: date ? format(date, 'yyyy-MM-dd') : '',
+        requestedTime: time ?? '', price: priceValue, website: honeypot
       })
-
-      if (!response.ok) throw new Error('Formspree submission failed')
 
       toast.success("Request received — I'll follow up by email to confirm.")
       onSuccess(name)
       setName('')
       setEmail('')
       setNotes('')
-    } catch {
-      toast.error('Something went wrong — please try again or email me directly.')
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Please try again or email me directly.')
     } finally {
       onSubmittingChange(false)
     }
@@ -89,6 +79,7 @@ const DetailsStep = ({ service, date, time, onSuccess, onSubmittingChange }: Det
       </div>
 
       <form id='details-form' onSubmit={handleSubmit} className='space-y-4'>
+        <input type='text' name='website' aria-hidden='true' tabIndex={-1} autoComplete='off' className='hidden' value={honeypot} onChange={event => setHoneypot(event.target.value)} />
         <div className='space-y-2'>
           <Label htmlFor='details-name'>Full Name *</Label>
           <Input

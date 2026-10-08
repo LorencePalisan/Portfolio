@@ -14,6 +14,7 @@ import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup } from '@/components/ui/select'
 
 import { cn } from '@/lib/utils'
+import { submitLead } from '@/lib/submit-lead'
 
 const SERVICE_ITEMS = SERVICE_OPTIONS.map(option => ({ label: option, value: option }))
 
@@ -21,9 +22,8 @@ type ContactFormProps = {
   className?: string
 }
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyezwnej'
-
 const ContactForm = ({ className }: ContactFormProps) => {
+  const [honeypot, setHoneypot] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
@@ -46,18 +46,12 @@ const ContactForm = ({ className }: ContactFormProps) => {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(values)
-      })
-
-      if (!response.ok) throw new Error('Formspree submission failed')
+      await submitLead({ ...values, form: 'contact', website: honeypot })
 
       toast.success("Message sent — I'll get back to you as soon as possible.")
       reset()
-    } catch {
-      toast.error('Something went wrong — please try again or email me directly.')
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Please try again or email me directly.')
     } finally {
       setIsSubmitting(false)
     }
@@ -65,6 +59,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cn(className)}>
+      <input type='text' name='website' aria-hidden='true' tabIndex={-1} autoComplete='off' className='hidden' value={honeypot} onChange={event => setHoneypot(event.target.value)} />
       <FieldGroup>
         <Field data-invalid={!!errors.name} className='gap-1'>
           <FieldLabel htmlFor='contact-name' className='text-muted-foreground text-base'>

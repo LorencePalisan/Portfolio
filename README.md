@@ -10,7 +10,7 @@ Personal portfolio and booking site for **Lorence Palisan**, a freelance web dev
 - [React](https://react.dev/) — interactive islands (forms, carousels, the 3D hero card)
 - [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) / [Base UI](https://base-ui.com/)
 - [Three.js](https://threejs.org/) / [React Three Fiber](https://r3f.docs.pmnd.rs/) — 3D ID card in the hero
-- [Formspree](https://formspree.io/) — contact and booking form submissions
+- Contact and booking forms post to my CRM (`crm.lorencepalisan.com/api/forms/submit`); see `.env.example`
 - [Cloudflare Pages](https://pages.cloudflare.com/) — hosting
 
 ## Getting Started
