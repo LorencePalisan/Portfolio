@@ -1,0 +1,70 @@
+---
+import { ArrowUpRightIcon } from 'lucide-react'
+
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
+
+import type { PortfolioProject } from '@/lib/projects'
+
+interface Props {
+  project: PortfolioProject
+}
+
+const { project } = Astro.props
+---
+
+<Card className='ring-border h-full gap-0 overflow-hidden rounded-[24px] p-0 shadow-lg'>
+  {
+    project.screenshotDesktop && (
+      <img
+        src={project.screenshotDesktop}
+        alt={`${project.title} website homepage`}
+        loading='lazy'
+        class='h-56 w-full object-cover object-top'
+      />
+    )
+  }
+
+  <div class='flex flex-1 flex-col justify-between gap-4 p-4 sm:p-6'>
+    <div class='space-y-3'>
+      <Badge variant='outline' className='rounded-full border-(--background-darker) bg-(--background-darker)'>
+        {project.category}
+      </Badge>
+      <h3 class='text-xl font-medium md:text-2xl'>{project.title}</h3>
+      <p class='text-muted-foreground text-base'>{project.summary}</p>
+      {
+        project.myRole && (
+          <p class='text-sm'>
+            <span class='font-medium'>My contribution:</span> {project.myRole}
+          </p>
+        )
+      }
+      {
+        project.technologies.length > 0 && (
+          <p class='text-muted-foreground text-sm'>{project.technologies.join(' · ')}</p>
+        )
+      }
+      {project.credit && <p class='text-muted-foreground text-xs italic'>{project.credit}</p>}
+    </div>
+
+    <div class='flex flex-wrap items-center gap-4 border-t pt-3 text-sm font-medium'>
+      {
+        project.caseStudySlug && (
+          <a href={`/case-study/${project.caseStudySlug}`} class='text-accent hover:underline'>
+            Read Case Study
+          </a>
+        )
+      }
+      <a
+        href={project.url}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='inline-flex items-center gap-1 hover:underline'
+      >
+        Visit Live Site
+        <ArrowUpRightIcon className='size-4' />
+        <span class='sr-only'>(opens in a new tab)</span>
+      </a>
+    </div>
+  </div>
+</Card>

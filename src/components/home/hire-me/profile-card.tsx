@@ -9,7 +9,7 @@ import AvailabilityBadge from '@/components/shared/availability-badge'
 import { cn } from '@/lib/utils'
 
 const STATS = [
-  { label: 'Reply time', value: '24h' },
+  { label: 'Reply time', value: '1 day' },
   { label: 'Updates', value: 'Weekly' },
   { label: 'Quote', value: 'Fixed' }
 ]
@@ -97,7 +97,7 @@ const ProfileCard = ({ className }: { className?: string }) => {
 
               <div className='flex items-end justify-between gap-3'>
                 <p className='text-base'>
-                  I build fast, scalable web and mobile apps that turn users into customers.
+                  I build and maintain reliable websites and web applications for growing businesses.
                 </p>
                 <Avatar className='h-24.5 w-20.5 shrink-0 rounded-[12px]'>
                   <AvatarImage src='/images/hire-me/profile.webp' alt='Lorence Palisan' className='rounded-[12px]' />
@@ -115,7 +115,7 @@ const ProfileCard = ({ className }: { className?: string }) => {
         <p className='mb-2 text-xl font-medium sm:text-2xl lg:text-[30px]'>Hire me today</p>
 
         <p className='text-muted-foreground text-base'>
-          Tell me about your project and I&apos;ll reply within 24 business hours with next steps and a clear plan to
+          Tell me about your project and I&apos;ll reply within one business day with next steps and a clear plan to
           get it built.
         </p>
       </div>

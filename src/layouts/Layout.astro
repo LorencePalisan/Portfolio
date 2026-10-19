@@ -11,6 +11,8 @@ import CustomCursor from '@/components/layout/custom-cursor'
 import ScrollProfileToast from '@/components/layout/scroll-profile-toast'
 import { Toaster } from '@/components/ui/sonner'
 
+import { getPublishedProjects } from '@/lib/projects'
+
 interface Props {
   title?: string
   description?: string
@@ -26,6 +28,7 @@ interface Props {
 }
 
 const seoProps = Astro.props as Props
+const showWork = getPublishedProjects().length > 0
 ---
 
 <!doctype html>
@@ -82,7 +85,7 @@ const seoProps = Astro.props as Props
     <EdgeBlur />
     <Toaster client:load />
     <ScrollProfileToast client:load pathname={Astro.url.pathname} />
-    <NavDock client:load pathname={Astro.url.pathname} />
+    <NavDock client:load pathname={Astro.url.pathname} showWork={showWork} />
     <CustomCursor client:load />
   </body>
 </html>

@@ -1,9 +1,9 @@
 // Site Configuration
 // Centralized configuration for site metadata, SEO, and branding
 
-export const SITE_TITLE = 'Lorence Palisan - Freelance Software Developer for Web & Mobile Apps'
+export const SITE_TITLE = 'Lorence Palisan - Websites & Custom Web Applications for Growing Businesses'
 export const SITE_DESCRIPTION =
-  'Lorence Palisan is a freelance software developer who helps growing businesses build fast, scalable web and mobile apps that drive conversions - with clear scope, weekly updates, and post-launch support.'
+  'Lorence Palisan helps businesses and startups build, maintain, and improve websites and web applications using WordPress, React, and modern cloud technologies - from initial development to long-term support.'
 
 export const SITE_URL = import.meta.env.SITE_URL || 'http://localhost:4321/'
 
@@ -16,7 +16,9 @@ export const SITE_METADATA = {
   keywords: [
     'Lorence Palisan',
     'freelance software developer',
-    'web and mobile app developer',
+    'freelance web developer',
+    'WordPress developer',
+    'website maintenance',
     'freelance full-stack developer',
     'Cloudflare Workers developer',
     'Cloudflare D1',

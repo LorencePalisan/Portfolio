@@ -9,28 +9,35 @@ import UserIcon from '@/assets/svg/user'
 import ProgrammingIcon from '@/assets/svg/programming'
 import TagPriceIcon from '@/assets/svg/tag-price'
 import MailIcon from '@/assets/svg/mail'
+import RulerPenIcon from '@/assets/svg/ruler-pen'
 
 const NAV_ITEMS = [
   { href: '/#about', id: 'about', label: 'About', icon: UserIcon },
+  { href: '/work', id: 'work', label: 'Work', icon: RulerPenIcon },
   { href: '/#experience', id: 'experience', label: 'Solutions', icon: ProgrammingIcon },
   { href: '/#pricing', id: 'pricing', label: 'Hire me', icon: TagPriceIcon },
   { href: '/contact', id: 'contact', label: 'Contact', icon: MailIcon }
 ]
 
-const SECTION_IDS = NAV_ITEMS.filter(item => item.id !== 'contact').map(item => item.id)
+// Page links highlight by pathname, the rest by the section in view on the homepage
+const PAGE_IDS = ['work', 'contact']
+const SECTION_IDS = NAV_ITEMS.filter(item => !PAGE_IDS.includes(item.id)).map(item => item.id)
 
 type NavDockProps = {
   pathname: string
+  showWork?: boolean
 }
 
-const NavDock = ({ pathname }: NavDockProps) => {
+const NavDock = ({ pathname, showWork = false }: NavDockProps) => {
   const activeId = useActiveSection(SECTION_IDS)
 
   return (
     <nav className='group fixed bottom-4 left-1/2 z-70 -translate-x-1/2 lg:top-1/2 lg:bottom-auto lg:left-6 lg:translate-x-0 lg:-translate-y-1/2'>
       <div className='bg-card dark:bg-card flex w-fit flex-row items-stretch gap-1.5 rounded-lg border p-2 shadow-sm max-lg:p-1.5 lg:flex-col lg:rounded-[16px]'>
-        {NAV_ITEMS.map(item => {
-          const isActive = item.id === 'contact' ? pathname === item.href : pathname === '/' && item.id === activeId
+        {NAV_ITEMS.filter(item => showWork || item.id !== 'work').map(item => {
+          const isActive = PAGE_IDS.includes(item.id)
+            ? pathname.replace(/\/$/, '') === item.href
+            : pathname === '/' && item.id === activeId
 
           return (
             <a

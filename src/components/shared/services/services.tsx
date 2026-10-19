@@ -9,12 +9,12 @@ import { Accordion, AccordionItem, AccordionContent, AccordionTrigger } from '@/
 
 const SERVICES = [
   {
-    title: 'Web & Mobile App Development',
+    title: 'Website & Web App Development',
     image: '/images/services/thumb-01.webp',
     duration: 'Best for new products, MVPs, and internal tools',
-    tools: ['Responsive web apps', 'iOS & Android apps', 'Landing pages & business tools'],
+    tools: ['Company websites', 'Custom web apps', 'Landing pages & business tools'],
     description:
-      'From a high-converting landing page to a full web or mobile app, I build what your business needs to win customers and save your team time - fast, reliable, and easy to grow.'
+      'From a company website or landing page to a full web application, I build what your business needs to win customers and save your team time - fast, reliable, and easy to grow.'
   },
   {
     title: 'Performance & Speed Optimization',
@@ -46,7 +46,7 @@ const SERVICES = [
     duration: 'Best for keeping your app healthy after launch',
     tools: ['Updates & fixes', 'Monitoring', 'Ongoing improvements'],
     description:
-      'Launch is not the finish line. I stay available to fix issues, keep things up to date, and keep improving your app as your business grows.'
+      'Launch is not the finish line. I stay available to fix issues, keep things up to date, and keep improving your site or app as your business grows.'
   }
 ]
 

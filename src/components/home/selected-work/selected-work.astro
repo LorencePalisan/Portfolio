@@ -1,0 +1,39 @@
+---
+import { ArrowRightIcon } from 'lucide-react'
+
+import Eyebrow from '@/components/shared/eyebrow/eyebrow.astro'
+import ProjectCard from '@/components/shared/project-card/project-card.astro'
+
+import type { PortfolioProject } from '@/lib/projects'
+
+interface Props {
+  projects: PortfolioProject[]
+}
+
+const { projects } = Astro.props
+---
+
+{
+  projects.length > 0 && (
+    <section id='projects' class='border-b py-8 sm:py-16 lg:py-24'>
+      <div class='mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-10.5'>
+        <div class='flex flex-wrap items-end justify-between gap-4'>
+          <div class='space-y-2'>
+            <Eyebrow text='Selected work' />
+            <h2 class='text-2xl font-semibold md:text-3xl lg:text-4xl'>Websites I have helped build and maintain</h2>
+          </div>
+          <a href='/work' class='text-accent inline-flex items-center gap-1.5 text-base font-medium hover:underline'>
+            View All Projects
+            <ArrowRightIcon className='size-4' />
+          </a>
+        </div>
+
+        <div class='grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+          {projects.map(project => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

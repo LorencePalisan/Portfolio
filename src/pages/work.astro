@@ -1,0 +1,64 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Eyebrow from '@/components/shared/eyebrow/eyebrow.astro'
+import ProjectCard from '@/components/shared/project-card/project-card.astro'
+
+import { getPublishedProjects } from '@/lib/projects'
+
+const projects = getPublishedProjects()
+
+const pageTitle = 'Work'
+const pageDescription =
+  'Selected websites and web applications Lorence Palisan has helped build, improve, and maintain for growing businesses.'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: pageTitle,
+      description: pageDescription,
+      hasPart: projects.map(project => ({
+        '@type': 'CreativeWork',
+        name: project.title,
+        url: project.url,
+        description: project.summary
+      }))
+    }
+  ]
+}
+---
+
+<!-- Kept out of search results until at least one project is approved for publishing -->
+<Layout title={pageTitle} description={pageDescription} schema={schema} noindex={projects.length === 0}>
+  <section class='py-8 max-sm:pt-20 sm:py-16 lg:py-24'>
+    <div class='mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-10.5'>
+      <div class='max-w-2xl space-y-4'>
+        <Eyebrow text='Work' />
+        <h1 class='text-4xl font-semibold tracking-tight sm:text-5xl'>Websites and web applications</h1>
+        <p class='text-muted-foreground text-lg'>
+          Projects I have helped build, improve, and maintain - with my contribution and the technologies I used on each
+          one.
+        </p>
+      </div>
+
+      {
+        projects.length > 0 ? (
+          <div class='grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+            {projects.map(project => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        ) : (
+          <p class='text-muted-foreground text-base'>
+            Project write-ups are being prepared.{' '}
+            <a href='/#select-service' class='text-accent font-medium hover:underline'>
+              Discuss your project
+            </a>{' '}
+            in the meantime.
+          </p>
+        )
+      }
+    </div>
+  </section>
+</Layout>

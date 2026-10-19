@@ -7,12 +7,12 @@ const PROBLEMS_AND_SOLUTIONS = [
   {
     index: '01',
     icon: ZapIcon,
-    category: 'Web & Mobile App Development',
+    category: 'Website & Web App Development',
     problem: 'The business had outgrown spreadsheets and off-the-shelf tools that no longer fit how the team works',
-    solutionTags: ['Custom web & mobile app', 'Built around your workflow', 'Launch-ready MVP'],
+    solutionTags: ['Custom website or web app', 'Built around your workflow', 'Launch-ready MVP'],
     outcome: 'A focused MVP shipped in weeks, not months, that the team actually uses',
     description:
-      'I scope the smallest version that solves the real problem, build it as a web or mobile app, and launch it quickly - so you get value early and grow it from real feedback.'
+      'I scope the smallest version that solves the real problem, build it as a website or web app, and launch it quickly - so you get value early and grow it from real feedback.'
   },
   {
     index: '02',

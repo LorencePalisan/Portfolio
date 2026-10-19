@@ -20,10 +20,10 @@ const STEP_TITLES: Record<number, string> = {
 const SERVICES = [
   {
     id: 'app-development',
-    title: 'Web & Mobile App Development',
+    title: 'Website & Web App Development',
     price: 'Custom quote',
     duration: '30 min call',
-    description: 'Web apps, iOS & Android apps, and business tools'
+    description: 'Company websites, WordPress sites, web apps, and business tools'
   },
   {
     id: 'performance',
@@ -45,6 +45,13 @@ const SERVICES = [
     price: 'Custom quote',
     duration: '30 min call',
     description: 'Custom themes, plugin extensions, and headless setups'
+  },
+  {
+    id: 'maintenance',
+    title: 'Maintenance & Ongoing Development',
+    price: 'Custom quote',
+    duration: '30 min call',
+    description: 'Updates, bug fixes, monitoring, and ongoing improvements'
   }
 ]
 
@@ -218,7 +225,9 @@ const ServiceStepCard = () => {
               >
                 {isSubmittingDetails ? 'Sending...' : 'Request Call'}
               </Button>
-              <p className='text-muted-foreground text-center text-xs'>I respond to every request within 24 business hours.</p>
+              <p className='text-muted-foreground text-center text-xs'>
+                I respond to every request within one business day.
+              </p>
             </>
           )}
         </div>

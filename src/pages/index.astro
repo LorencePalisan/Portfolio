@@ -6,8 +6,12 @@ import Experience from '@/components/home/experience/experience.astro'
 import Services from '@/components/shared/services/services'
 import HireMe from '@/components/home/hire-me/hire-me.astro'
 import SelectService from '@/components/home/select-service/select-service.astro'
+import SelectedWork from '@/components/home/selected-work/selected-work.astro'
 
 import { SITE_METADATA } from '@/consts'
+import { getPublishedProjects } from '@/lib/projects'
+
+const featuredProjects = getPublishedProjects({ featuredOnly: true }).slice(0, 3)
 
 const pageDescription = SITE_METADATA.description
 const pageKeywords = SITE_METADATA.keywords.join(', ')
@@ -18,14 +22,15 @@ const schema = {
     {
       '@type': 'WebSite',
       name: 'Lorence Palisan',
-      description: 'Freelance software developer building web and mobile apps for growing businesses.',
+      description: 'Freelance web developer building websites and custom web applications for growing businesses.',
       inLanguage: 'en-US'
     },
     {
       '@type': 'Person',
       name: 'Lorence Palisan',
-      jobTitle: 'Freelance Software Developer',
+      jobTitle: 'Freelance Web Developer',
       knowsAbout: [
+        'WordPress',
         'React',
         'TypeScript',
         'Cloudflare Workers',
@@ -40,7 +45,8 @@ const schema = {
 ---
 
 <Layout description={pageDescription} keywords={pageKeywords} schema={schema}>
-  <Hero />
+  <Hero showWorkLink={featuredProjects.length > 0} />
+  <SelectedWork projects={featuredProjects} />
   <About />
   <Experience />
   <Services client:visible />
